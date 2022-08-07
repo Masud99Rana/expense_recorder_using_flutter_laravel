@@ -19,7 +19,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 
-Route::group(['middleware' => 'auth:sanctum'], function() {
+Route::group(['middleware' => 'auth:sanctum', 'prefix' => 'v1'], function() {
     Route::apiResource('categories',
         \App\Http\Controllers\Api\CategoryController::class);
 
