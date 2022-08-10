@@ -1,12 +1,14 @@
 // ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors
-import 'package:my_app/models/category.dart';
+
 import 'package:flutter/material.dart';
+import 'package:my_app/models/category.dart';
 
 class CategoryEdit extends StatefulWidget {
   final Category category;
   final Function categoryCallback;
 
-  CategoryEdit(this.category, this.categoryCallback, {Key? key}) : super(key: key);
+  CategoryEdit(this.category, this.categoryCallback, {Key? key})
+      : super(key: key);
 
   @override
   _CategoryEditState createState() => _CategoryEditState();
