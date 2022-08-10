@@ -1,27 +1,20 @@
-// ignore_for_file: file_names, prefer_const_constructors_in_immutables, prefer_const_constructors
-import 'package:my_app/models/category.dart';
+// ignore_for_file: prefer_const_constructors, file_names, prefer_const_constructors_in_immutables
+
 import 'package:flutter/material.dart';
 
-class CategoryEdit extends StatefulWidget {
-  final Category category;
+class CategoryAdd extends StatefulWidget {
   final Function categoryCallback;
 
-  CategoryEdit(this.category, this.categoryCallback, {Key? key}) : super(key: key);
+  CategoryAdd(this.categoryCallback, {Key? key}) : super(key: key);
 
   @override
-  _CategoryEditState createState() => _CategoryEditState();
+  _CategoryAddState createState() => _CategoryAddState();
 }
 
-class _CategoryEditState extends State<CategoryEdit> {
+class _CategoryAddState extends State<CategoryAdd> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   final categoryNameController = TextEditingController();
   String errorMessage = '';
-
-  @override
-  void initState() {
-    categoryNameController.text = widget.category.name;
-    super.initState();
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -69,9 +62,7 @@ class _CategoryEditState extends State<CategoryEdit> {
       return;
     }
 
-    widget.category.name = categoryNameController.text;
-
-    await widget.categoryCallback(widget.category);
+    await widget.categoryCallback(categoryNameController.text);
     Navigator.pop(context);
   }
 }
